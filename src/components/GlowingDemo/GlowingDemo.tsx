@@ -2,6 +2,7 @@
 
 import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import {Link, type To} from "react-router-dom";
 
 export function GlowingEffectDemoSecond() {
     return (
@@ -11,6 +12,7 @@ export function GlowingEffectDemoSecond() {
                 icon={<Box className="h-4 w-4 text-black dark:text-neutral-400" />}
                 title="PC Builder Guides"
                 description="Guides an tips to help build your Dream Gaming Setup."
+                to={"/guides/pc-build-guides"}
             />
 
             <GridItem
@@ -18,6 +20,7 @@ export function GlowingEffectDemoSecond() {
                 icon={<Settings className="h-4 w-4 text-black dark:text-neutral-400" />}
                 title="Windows Optimization"
                 description="Yes, it's true. I'm not even kidding. Ask my mom if you don't believe me."
+                to={"/guides/windows-os-optimization"}
             />
 
             <GridItem
@@ -25,33 +28,37 @@ export function GlowingEffectDemoSecond() {
                 icon={<Lock className="h-4 w-4 text-black dark:text-neutral-400" />}
                 title="Graphics Settings & Optimization"
                 description="It's the best money you'll ever spend"
+                to={"/guides/-graphical-optimization-settings"}
             />
 
             <GridItem
                 area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
                 icon={<Sparkles className="h-4 w-4 text-black dark:text-neutral-400" />}
-                title=""
+                title="Guide to PC Upgrades"
                 description="I'm not even kidding. Ask my mom if you don't believe me."
+                to={"/guides/pc-upgrades"}
             />
 
             <GridItem
                 area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
                 icon={<Search className="h-4 w-4 text-black dark:text-neutral-400" />}
-                title="Coming soon on Aceternity UI"
+                title="Software Installations"
                 description="I'm writing the code as I record this, no shit."
+                to={"/guides/software-installation-guides"}
             />
         </ul>
     );
 }
 
 interface GridItemProps {
-    area: string;
-    icon: React.ReactNode;
-    title: string;
-    description: React.ReactNode;
+    area: string,
+    icon: React.ReactNode,
+    title: string,
+    description: React.ReactNode,
+    to: To
 }
 
-const GridItem = ({ area, icon, title, description }: GridItemProps) => {
+const GridItem = ({ area, icon, title, description, to }: GridItemProps) => {
     return (
         <li className={`min-h-[14rem] list-none ${area}`}>
             <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
@@ -64,21 +71,23 @@ const GridItem = ({ area, icon, title, description }: GridItemProps) => {
                     proximity={64}
                     inactiveZone={0.01}
                 />
-                <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
-                    <div className="relative flex flex-1 flex-col justify-between gap-3">
-                        <div className="w-fit rounded-lg border border-gray-600 p-2">
-                            {icon}
-                        </div>
-                        <div className="space-y-3">
-                            <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-black md:text-2xl/[1.875rem] dark:text-white">
-                                {title}
-                            </h3>
-                            <h2 className="font-sans text-sm/[1.125rem] text-black md:text-base/[1.375rem] dark:text-neutral-400 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
-                                {description}
-                            </h2>
+                <Link to={to}>
+                    <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+                        <div className="relative flex flex-1 flex-col justify-between gap-3">
+                            <div className="w-fit rounded-lg border border-gray-600 p-2">
+                                {icon}
+                            </div>
+                            <div className="space-y-3">
+                                <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-black md:text-2xl/[1.875rem] dark:text-white">
+                                    {title}
+                                </h3>
+                                <h2 className="font-sans text-sm/[1.125rem] text-black md:text-base/[1.375rem] dark:text-neutral-400 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+                                    {description}
+                                </h2>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </li>
     );
