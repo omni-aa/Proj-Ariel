@@ -1,8 +1,7 @@
-
-
 import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import {Link, type To} from "react-router-dom";
+import { Link, type To } from "react-router-dom";
+import PC_BUILDER_GUIDES from "../../../assets/pc_guidesimg.png";
 
 export function GlowingEffectDemoSecond() {
     return (
@@ -13,6 +12,7 @@ export function GlowingEffectDemoSecond() {
                 title="PC Builder Guides"
                 description="Guides an tips to help build your Dream Gaming Setup."
                 to={"/guides/pc-build-guides"}
+                image={PC_BUILDER_GUIDES}
             />
 
             <GridItem
@@ -21,6 +21,7 @@ export function GlowingEffectDemoSecond() {
                 title="Windows Optimization"
                 description="Yes, it's true. I'm not even kidding. Ask my mom if you don't believe me."
                 to={"/guides/windows-os-optimization"}
+                image={PC_BUILDER_GUIDES}
             />
 
             <GridItem
@@ -29,6 +30,7 @@ export function GlowingEffectDemoSecond() {
                 title="Graphics Settings & Optimization"
                 description="It's the best money you'll ever spend"
                 to={"/guides/-graphical-optimization-settings"}
+                image={PC_BUILDER_GUIDES}
             />
 
             <GridItem
@@ -37,6 +39,7 @@ export function GlowingEffectDemoSecond() {
                 title="Guide to PC Upgrades"
                 description="I'm not even kidding. Ask my mom if you don't believe me."
                 to={"/guides/pc-upgrades"}
+                image={PC_BUILDER_GUIDES}
             />
 
             <GridItem
@@ -45,22 +48,24 @@ export function GlowingEffectDemoSecond() {
                 title="Software Installations"
                 description="I'm writing the code as I record this, no shit."
                 to={"/guides/software-installation-guides"}
+                image={PC_BUILDER_GUIDES}
             />
         </ul>
     );
 }
 
 interface GridItemProps {
-    area: string,
-    icon: React.ReactNode,
-    title: string,
-    description: React.ReactNode,
-    to: To
+    area: string;
+    icon: React.ReactNode;
+    title: string;
+    description: React.ReactNode;
+    to: To;
+    image: string;
 }
 
-const GridItem = ({ area, icon, title, description, to }: GridItemProps) => {
+const GridItem = ({ area, icon, title, image, description, to }: GridItemProps) => {
     return (
-        <li className={`min-h-[14rem] list-none ${area}`}>
+        <li className={`min-h-[16rem] list-none ${area}`}>
             <div className="relative h-full rounded-2xl border p-2 md:rounded-3xl md:p-3">
                 <GlowingEffect
                     blur={0}
@@ -72,19 +77,30 @@ const GridItem = ({ area, icon, title, description, to }: GridItemProps) => {
                     inactiveZone={0.01}
                 />
                 <Link to={to}>
-                    <div className="border-0.75 relative flex h-full flex-col justify-between gap-6 overflow-hidden rounded-xl p-6 md:p-6 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+                    <div className="border-0.75 relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl p-4 md:p-4 dark:shadow-[0px_0px_27px_0px_#2D2D2D]">
+                        {/* Larger and more prominent image */}
+                        <div className="relative w-full h-48 rounded-xl overflow-hidden mb-3 group">
+                            <img
+                                src={image}
+                                alt={title}
+                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                            {/* Optional overlay for better text readability */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </div>
+
                         <div className="relative flex flex-1 flex-col justify-between gap-3">
-                            <div className="w-fit rounded-lg border border-gray-600 p-2">
-                                {icon}
-                            </div>
-                            <div className="space-y-3">
-                                <h3 className="-tracking-4 pt-0.5 font-sans text-xl/[1.375rem] font-semibold text-balance text-black md:text-2xl/[1.875rem] dark:text-white">
+                            <div className="flex items-center gap-3">
+                                <div className="w-fit rounded-lg border border-gray-600 p-2">
+                                    {icon}
+                                </div>
+                                <h3 className="font-sans text-xl font-semibold text-black md:text-2xl dark:text-white">
                                     {title}
                                 </h3>
-                                <h2 className="font-sans text-sm/[1.125rem] text-black md:text-base/[1.375rem] dark:text-neutral-400 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
-                                    {description}
-                                </h2>
                             </div>
+                            <h2 className="font-sans text-sm text-black md:text-base dark:text-neutral-400 [&_b]:md:font-semibold [&_strong]:md:font-semibold">
+                                {description}
+                            </h2>
                         </div>
                     </div>
                 </Link>
