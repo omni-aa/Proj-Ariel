@@ -1,6 +1,7 @@
 "use client";
 import { HeroHighlight } from "@/components/ui/hero-highlight.tsx";
 import { motion } from "motion/react";
+import {Link} from "react-router-dom";
 
 export function HeroHighlightDemo() {
     return (
@@ -47,9 +48,12 @@ export function HeroHighlightDemo() {
                     transition={{ delay: 0.4, duration: 0.4 }}
                     className="pt-4"
                 >
-                    <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        Explore Now
-                    </button>
+                    <Link to={"/explore"}>
+                        <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Explore Now
+                        </button>
+                    </Link>
+
                 </motion.div>
             </motion.div>
         </HeroHighlight>
