@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, ScrollRestoration } from "react-router-dom";
+import {
+    Link,
+    NavLink,
+    Outlet,
+    ScrollRestoration,
+    useLocation,
+} from "react-router-dom";
 import { cn } from "@/lib/utils";
 import {
     Home,
@@ -18,6 +24,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation(); // ✅ Reactive router location
 
     // Handle scroll background opacity
     useEffect(() => {
@@ -55,10 +62,7 @@ const Navbar = () => {
                     <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
                         <div className="flex items-center justify-between h-16">
                             {/* Brand */}
-                            <Link
-                                to="/"
-                                className="flex items-center space-x-2 group relative"
-                            >
+                            <Link to="/" className="flex items-center space-x-2 group relative">
                                 <div className="w-9 h-9 bg-gradient-to-br from-primary to-primary/70 rounded-lg flex items-center justify-center shadow-lg shadow-primary/30 transition-transform duration-300 group-hover:scale-110 group-hover:shadow-primary/50">
                                     <span className="text-white font-bold text-sm">PA</span>
                                 </div>
@@ -71,6 +75,7 @@ const Navbar = () => {
                             <nav className="hidden md:flex items-center space-x-3">
                                 {navigation.map((item) => {
                                     const Icon = item.icon;
+                                    const isActive = location.pathname === item.path; // ✅ Track route reactively
                                     return (
                                         <NavLink
                                             key={item.path}
@@ -86,12 +91,17 @@ const Navbar = () => {
                                         >
                                             <Icon size={18} />
                                             <span>{item.label}</span>
-                                            {/* Active underline animation */}
-                                            {location.pathname === item.path && (
+
+                                            {/* ✅ Active underline animation */}
+                                            {isActive && (
                                                 <motion.span
                                                     layoutId="activeNavUnderline"
                                                     className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full"
-                                                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                                                    transition={{
+                                                        type: "spring",
+                                                        stiffness: 500,
+                                                        damping: 30,
+                                                    }}
                                                 />
                                             )}
                                         </NavLink>
@@ -132,6 +142,7 @@ const Navbar = () => {
                                 className="absolute inset-0 bg-background/80 dark:bg-background-dark/80 backdrop-blur-sm"
                                 onClick={closeMenu}
                             />
+
                             {/* Menu Panel */}
                             <div className="absolute right-0 top-0 h-full w-80 bg-background dark:bg-background-dark border-l border-border/40 dark:border-border-dark/40 shadow-2xl flex flex-col">
                                 {/* Header */}
