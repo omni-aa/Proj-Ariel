@@ -13,6 +13,9 @@ import PC_Upgrades from "@/pages/Guides/PC Upgrades/page.tsx";
 import Software_Guides from "@/pages/Guides/Software/page.tsx";
 import Windows_Optimization_Guides from "@/pages/Guides/Windows Optimization/page.tsx";
 import Game_Installations from "@/pages/Guides/Game Installations/Game_Installations.tsx";
+import AboutUs from "@/pages/About/page.tsx";
+import ContactPage from "@/pages/Contact/page.tsx";
+import PrivacyPolicyPage from "@/pages/Privacy-Policy/page.tsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -28,6 +31,9 @@ const router = createBrowserRouter(
             <Route path={"/guides/software-installation-guides"} element={<Software_Guides/>}/>
             <Route path={"/guides/windows-os-optimization"} element={<Windows_Optimization_Guides/>}/>
             <Route path={"/guides/game-installations"} element={<Game_Installations/>}/>
+            <Route path={"/contact-us"} element={<ContactPage/>}/>
+            <Route path={"/about-us"} element={<AboutUs/>} />
+            <Route path={"/privacy-policy"} element={<PrivacyPolicyPage/>} />
 
 
 

@@ -79,8 +79,8 @@ const Footer = () => {
                         <nav className="space-y-3 text-sm">
                             {[
                                 { to: "/about-us", label: "About Us" },
-                                { to: "/privacy", label: "Privacy Policy" },
-                                { to: "/Discord", label: "Contact Us" },
+                                { to: "/privacy-policy", label: "Privacy Policy" },
+                                { to: "/contact-us", label: "Contact Us" },
                             ].map(({ to, label }) => (
                                 <Link
                                     key={label}
