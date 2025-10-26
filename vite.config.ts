@@ -12,9 +12,9 @@ export default defineConfig({
         VitePWA({
             includeAssets: ['favicon.svg', 'generative.png'], // optional extra assets
             manifest: {
-                name: 'My App',
-                short_name: 'App',
-                description: 'My React + Vite + TS + Tailwind App with PWA support',
+                name: 'Proj-Ariel',
+                short_name: 'Ariel-Tech',
+                description: 'For gamers by gamers',
                 theme_color: '#ffffff',
                 icons: [
                     {
