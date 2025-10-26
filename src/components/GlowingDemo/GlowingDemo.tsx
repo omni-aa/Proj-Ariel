@@ -2,6 +2,9 @@ import { Box, Lock, Search, Settings, Sparkles } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Link, type To } from "react-router-dom";
 import PC_BUILDER_GUIDES from "../../../assets/pc_guidesimg.png";
+import GRAPHICS_OPTIMIZATION from "../../../assets/graphics_optimization.webp"
+import WINDOWS_OPTIMIZATION from "../../../assets/windows_optimization.png"
+import PC_UPGRADES from "../../../assets/pc_upgrades.webp"
 
 export function GlowingEffectDemoSecond() {
     return (
@@ -21,7 +24,7 @@ export function GlowingEffectDemoSecond() {
                 title="Windows Optimization"
                 description="Yes, it's true. I'm not even kidding. Ask my mom if you don't believe me."
                 to={"/guides/windows-os-optimization"}
-                image={PC_BUILDER_GUIDES}
+                image={WINDOWS_OPTIMIZATION}
             />
 
             <GridItem
@@ -30,7 +33,7 @@ export function GlowingEffectDemoSecond() {
                 title="Graphics Settings & Optimization"
                 description="It's the best money you'll ever spend"
                 to={"/guides/-graphical-optimization-settings"}
-                image={PC_BUILDER_GUIDES}
+                image={GRAPHICS_OPTIMIZATION}
             />
 
             <GridItem
@@ -39,7 +42,7 @@ export function GlowingEffectDemoSecond() {
                 title="Guide to PC Upgrades"
                 description="I'm not even kidding. Ask my mom if you don't believe me."
                 to={"/guides/pc-upgrades"}
-                image={PC_BUILDER_GUIDES}
+                image={PC_UPGRADES}
             />
 
             <GridItem
