@@ -81,7 +81,7 @@ const dummyContent = [
     {
         title: "PC Builder Guides",
         badge: "PC Builder Guides",
-        image: "http://localhost:5173/assets/windows_optimization.png",
+        image: "https://proj-ariel.vercel.app/assets/pc_guidesimg-DIynNg3W.png",
         Link: "/guides/new-player-guide",
         description: (
             <>
@@ -99,7 +99,7 @@ const dummyContent = [
     {
         title: "Windows Optimization",
         badge: "Windows Optimization",
-        image: "http://localhost:5173/assets/windows_optimization.png",
+        image: "https://proj-ariel.vercel.app/assets/pc_guidesimg-DIynNg3W.png",
         Link: "/guides/windows-optimization",
         description: (
             <>
@@ -117,7 +117,7 @@ const dummyContent = [
     {
         title: "Graphic Settings & Optimization",
         badge: "Graphic Settings & Optimization",
-        image: "http://localhost:5173/assets/windows_optimization.png",
+        image: "https://proj-ariel.vercel.app/assets/pc_guidesimg-DIynNg3W.png",
         Link: "/guides/graphics-optimization",
         description: (
             <>
@@ -135,7 +135,7 @@ const dummyContent = [
     {
         title: "Guides to PC Upgrades",
         badge: "PC Upgrade Guides",
-        image: "http://localhost:5173/assets/windows_optimization.png",
+        image: "https://proj-ariel.vercel.app/assets/pc_guidesimg-DIynNg3W.png",
         Link: "/guides/pc-upgrades",
         description: (
             <>
