@@ -3,6 +3,7 @@ import {GlowingEffectDemoSecond} from "@/components/GlowingDemo/GlowingDemo.tsx"
 import {HeroHighlightDemo} from "@/components/ui/herohighlights.tsx";
 import {BackgroundRippleEffect} from "@/components/ui/background-ripple-effect.tsx";
 import {InfiniteMovingCards} from "@/components/ui/infinite-moving-cards.tsx";
+import IPVerification from "@/components/hehe.tsx";
 
 
 
@@ -55,6 +56,7 @@ export function HomePage() {
                             Complete walkthroughs for building your gaming PC, installing essential software,
                             and optimizing every setting for peak gaming performance.
                         </p>
+                        <IPVerification/>
                     </div>
                 </div>
             </div>
